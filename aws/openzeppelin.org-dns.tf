@@ -1,12 +1,3 @@
-provider "aws" {
-  profile    = "default"
-  region     = "us-east-1"
-}
-
-locals {
-  netlify_ip = "104.198.14.52"
-}
-
 #resource "aws_route53_zone" "openzeppelin_org" {
 #  name = "openzeppelin.org"
 #}

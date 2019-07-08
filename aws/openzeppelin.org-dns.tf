@@ -2,7 +2,7 @@
 #  name = "openzeppelin.org"
 #}
 
-#resource "aws_route53_record" "nameservers" {
+#resource "aws_route53_record" "openzeppelin_org_nameservers" {
 #  allow_overwrite = true
 #  name            = "openzeppelin.org"
 #  ttl             = 30
@@ -17,7 +17,7 @@
 #  ]
 #}
 
-#resource "aws_route53_record" "soa" {
+#resource "aws_route53_record" "openzeppelin_org_soa" {
 #  allow_overwrite = true
 #  name            = "openzeppelin.org"
 #  ttl             = 900
@@ -29,7 +29,7 @@
 #  ]
 #}
 
-resource "aws_route53_record" "website" {
+resource "aws_route53_record" "openzeppelin_org_website" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "openzeppelin.org"
@@ -38,7 +38,7 @@ resource "aws_route53_record" "website" {
   records = [local.netlify_ip]
 }
 
-resource "aws_route53_record" "aws_certificate_validation" {
+resource "aws_route53_record" "openzeppelin_org_aws_certificate_validation" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "_df0a7bc1a38ac3b6105129ad125344ab.openzeppelin.org"
@@ -47,7 +47,7 @@ resource "aws_route53_record" "aws_certificate_validation" {
   records = ["_4314433f11130fc2f99f736864fe12a5.acm-validations.aws."]
 }
 
-resource "aws_route53_record" "aws_certificate_validation_www" {
+resource "aws_route53_record" "openzeppelin_org_aws_certificate_validation_www" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "_7c9144567bcc1b51ee510d4338c4ab65.www.openzeppelin.org"
@@ -56,28 +56,34 @@ resource "aws_route53_record" "aws_certificate_validation_www" {
   records = ["_36187d944ae7435d1821e95cbb205186.acm-validations.aws."]
 }
 
-resource "aws_route53_record" "mailgun_mx" {
+resource "aws_route53_record" "openzeppelin_org_google_mx" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "openzeppelin.org"
   ttl     = "300"
   type    = "MX"
   records = [
-    "10 mxa.mailgun.org",
-    "10 mxb.mailgun.org"
+    "5 alt1.aspmx.l.google.com.",
+    "5 alt2.aspmx.l.google.com.",
+    "1 aspmx.l.google.com.",
+    "10 alt3.aspmx.l.google.com.",
+    "10 alt4.aspmx.l.google.com."
   ]
 }
 
-resource "aws_route53_record" "mailgun_txt" {
+resource "aws_route53_record" "openzeppelin_org_txt" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "openzeppelin.org"
   ttl     = "300"
   type    = "TXT"
-  records = ["v=spf1 include:mailgun.org ~all"]
+  records = [
+    "v=spf1 include:mailgun.org include:_spf.google.com ~all",
+    "google-site-verification=77Dy8GeDTYpHhvkmjpkIzCTAmlMwQxbas17B20kQNaI"
+  ]
 }
 
-resource "aws_route53_record" "mailgun_txt_k1" {
+resource "aws_route53_record" "openzeppelin_org_mailgun_txt_k1" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "k1._domainkey.openzeppelin.org"
@@ -88,7 +94,7 @@ resource "aws_route53_record" "mailgun_txt_k1" {
   ]
 }
 
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "openzeppelin_org_www" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "www.openzeppelin.org"
@@ -97,7 +103,7 @@ resource "aws_route53_record" "www" {
   records = ["openzeppelin.netlify.com"]
 }
 
-resource "aws_route53_record" "docs" {
+resource "aws_route53_record" "openzeppelin_org_docs" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "docs.openzeppelin.org"
@@ -106,7 +112,7 @@ resource "aws_route53_record" "docs" {
   records = ["openzeppelin-docs.netlify.com"]
 }
 
-resource "aws_route53_record" "forum" {
+resource "aws_route53_record" "openzeppelin_org_forum" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "forum.openzeppelin.org"
@@ -115,11 +121,20 @@ resource "aws_route53_record" "forum" {
   records = ["zeppelin.hosted-by-discourse.com"]
 }
 
-resource "aws_route53_record" "slack_landing_page" {
+resource "aws_route53_record" "openzeppelin_org_slack_landing_page" {
   zone_id = "Z4OXHKVXYGOI"
 #  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "slack.openzeppelin.org"
   ttl     = 300
   type    = "CNAME"
   records = ["openzeppelin-slack.netlify.com"]
+}
+
+resource "aws_route53_record" "openzeppelin_org_gns_rinkeby" {
+  zone_id = "Z4OXHKVXYGOI"
+#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  name    = "rinkeby-01.gsn.openzeppelin.org"
+  ttl     = 300
+  type    = "A"
+  records = ["3.80.1.211"]
 }

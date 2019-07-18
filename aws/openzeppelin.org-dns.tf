@@ -100,7 +100,7 @@ resource "aws_route53_record" "openzeppelin_org_www" {
   name    = "www.openzeppelin.org"
   ttl     = 300
   type    = "CNAME"
-  records = ["openzeppelin.netlify.com"]
+  records = ["openzeppelin-org.netlify.com"]
 }
 
 resource "aws_route53_record" "openzeppelin_org_docs" {

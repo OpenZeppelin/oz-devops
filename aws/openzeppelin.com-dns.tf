@@ -69,3 +69,11 @@ resource "aws_route53_record" "openzeppelin_com_txt" {
     "google-site-verification=30do8MGZ29CQX6R0H5hs3Y09SUYuLIt1fbrHWBeJg98"
   ]
 }
+
+resource "aws_route53_record" "openzeppelin_com_docs" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "docs.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["openzeppelin-docs.netlify.com"]
+}

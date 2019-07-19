@@ -77,3 +77,13 @@ resource "aws_route53_record" "openzeppelin_com_docs" {
   type    = "CNAME"
   records = ["openzeppelin-docs.netlify.com"]
 }
+
+resource "aws_route53_record" "openzeppelin_com_forum" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "forum.openzeppelin.com."
+  ttl     = "300"
+  type    = "CNAME"
+  records = [
+    "zeppelin.hosted-by-discourse.com"
+  ]
+}

@@ -118,7 +118,7 @@ resource "aws_route53_record" "openzeppelin_org_forum" {
   name    = "forum.openzeppelin.org"
   ttl     = 300
   type    = "CNAME"
-  records = ["zeppelin.hosted-by-discourse.com"]
+  records = ["openzeppelin-org-forum.netlify.com"]
 }
 
 resource "aws_route53_record" "openzeppelin_org_slack_landing_page" {

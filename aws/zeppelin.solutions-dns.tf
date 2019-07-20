@@ -170,8 +170,8 @@ resource "aws_route53_record" "zeppelin_solutions_ethernaut" {
 #  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "ethernaut.zeppelin.solutions"
   ttl     = "900"
-  type    = "A"
-  records = ["52.200.215.17"]
+  type    = "CNAME"
+  records = ["openzeppelin-ethernaut.netlify.com"]
 }
 
 resource "aws_route53_record" "zeppelin_solutions_ethernaut_devcon3" {
@@ -181,7 +181,7 @@ resource "aws_route53_record" "zeppelin_solutions_ethernaut_devcon3" {
   ttl     = "900"
   type    = "CNAME"
   records = [
-    "ethernaut.zeppelin.solutions."
+    "openzeppelin-ethernaut.netlify.com"
   ]
 }
 
@@ -192,7 +192,7 @@ resource "aws_route53_record" "zeppelin_solutions_ethernaut_ethuoft" {
   ttl     = "900"
   type    = "CNAME"
   records = [
-    "ethernaut.zeppelin.solutions."
+    "openzeppelin-ethernaut.netlify.com"
   ]
 }
 
@@ -212,7 +212,7 @@ resource "aws_route53_record" "zeppelin_solutions_forum" {
   ttl     = "300"
   type    = "CNAME"
   records = [
-    "zeppelin.hosted-by-discourse.com"
+    "zeppelinsolutions-forum.netlify.com"
   ]
 }
 

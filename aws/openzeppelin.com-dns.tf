@@ -108,3 +108,11 @@ resource "aws_route53_record" "openzeppelin_com_crafty_aws_certificate_validatio
     "_a5d12adbe04eea7290525bf60e7318a6.duyqrilejt.acm-validations.aws."
   ]
 }
+
+resource "aws_route53_record" "openzeppelin_com_ethernaut" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "ethernaut.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["openzeppelin-ethernaut.netlify.com"]
+}

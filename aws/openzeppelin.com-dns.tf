@@ -98,3 +98,13 @@ resource "aws_route53_record" "openzeppelin_com_crafty" {
     evaluate_target_health = false
   }
 }
+
+resource "aws_route53_record" "openzeppelin_com_crafty_aws_certificate_validation" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = " _0379fa5c217950dbe5318563126043d2.crafty.openzeppelin.com."
+  ttl     = "300"
+  type    = "CNAME"
+  records = [
+    "_a5d12adbe04eea7290525bf60e7318a6.duyqrilejt.acm-validations.aws."
+  ]
+}

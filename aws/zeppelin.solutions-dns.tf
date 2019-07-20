@@ -97,25 +97,17 @@ resource "aws_route53_record" "zeppelin_solutions_google_txt" {
   ]
 }
 
-resource "aws_route53_record" "zeppelin_solutions_blog" {
+resource "aws_route53_record" "zeppelin_solutions_blog_nameservers" {
   zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
-  name    = "blog.zeppelin.solutions"
-  ttl     = "900"
-  type    = "A"
+#  zone_id         = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  name            = "blog.zeppelin.solution"
+  ttl             = 30
+  type            = "NS"
+
   records = [
-    "52.1.173.203",
-    "52.1.147.205",
-    "52.1.119.170",
-    "52.0.16.118",
-    "52.4.145.119",
-    "52.6.46.142",
-    "52.6.3.192",
-    "52.5.181.79",
-    "52.4.38.70",
-    "52.4.240.221",
-    "52.4.225.124",
-    "52.4.175.111"
+    "ns1.wordpress.com.",
+    "ns2.wordpress.com.",
+    "ns3.wordpress.com."
   ]
 }
 

@@ -88,6 +88,19 @@ resource "aws_route53_record" "openzeppelin_com_forum" {
   ]
 }
 
+resource "aws_route53_record" "openzeppelin_com_blog_nameservers" {
+  name            = "blog.openzeppelin.com"
+  ttl             = 30
+  type            = "NS"
+  zone_id         = "${aws_route53_zone.openzeppelin_com.zone_id}"
+
+  records = [
+    "ns1.wordpress.com.",
+    "ns2.wordpress.com.",
+    "ns3.wordpress.com."
+  ]
+}
+
 resource "aws_route53_record" "openzeppelin_com_crafty" {
   zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
   name    = "crafty.openzeppelin.com"

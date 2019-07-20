@@ -161,23 +161,8 @@ resource "aws_route53_record" "zeppelin_solutions_crafty" {
   zone_id = "ZB15TMR9MWDH7"
 #  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "crafty.zeppelin.solutions"
-  type    = "A"
-  alias {
-    name                   = "d36f6jlxd1t7vv.cloudfront.net."
-    zone_id                = "Z2FDTNDATAQYW2"
-    evaluate_target_health = false
-  }
-}
-
-resource "aws_route53_record" "zeppelin_solutions_crafty_aws_certificate_validation" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
-  name    = "_37e9f5ee943fa7dde772589b5fd935b3.crafty.zeppelin.solutions"
-  ttl     = "300"
   type    = "CNAME"
-  records = [
-    "_20c326f0aff8fc9ce421f95749b5ea1f.acm-validations.aws."
-  ]
+  records = ["zeppelinsolutions-craft.netlify.com"]
 }
 
 resource "aws_route53_record" "zeppelin_solutions_ethernaut" {

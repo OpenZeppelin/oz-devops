@@ -129,3 +129,11 @@ resource "aws_route53_record" "openzeppelin_com_ethernaut" {
   type    = "CNAME"
   records = ["openzeppelin-ethernaut.netlify.com"]
 }
+
+resource "aws_route53_record" "openzeppelin_com_gsn-chat-app" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "gsn-chat-app.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["gsn-chat-app.netlify.com"]
+}

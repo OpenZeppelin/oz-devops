@@ -147,3 +147,12 @@ resource "aws_route53_record" "openzeppelin_org_gns_rinkeby" {
   type    = "A"
   records = ["3.80.1.211"]
 }
+
+resource "aws_route53_record" "openzeppelin_org_gns_rinkeby_02" {
+  zone_id = "Z4OXHKVXYGOI"
+#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  name    = "rinkeby-02.gsn.openzeppelin.org"
+  ttl     = 300
+  type    = "A"
+  records = ["18.214.40.62"]
+}

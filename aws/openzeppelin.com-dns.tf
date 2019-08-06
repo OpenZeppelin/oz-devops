@@ -137,3 +137,12 @@ resource "aws_route53_record" "openzeppelin_com_gsn-chat-app" {
   type    = "CNAME"
   records = ["gsn-chat-app.netlify.com"]
 }
+
+resource "aws_route53_record" "openzeppelin_com_gsn" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "gsn.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["gas-station-network.netlify.com"]
+}
+

@@ -143,6 +143,6 @@ resource "aws_route53_record" "openzeppelin_com_gsn" {
   name    = "gsn.openzeppelin.com"
   ttl     = 300
   type    = "CNAME"
-  records = ["gas-station-network.netlify.com"]
+  records = ["gifted-mayer-c163b8.netlify.com"]
 }
 

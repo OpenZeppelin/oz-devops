@@ -15,7 +15,7 @@ resource "aws_route53_record" "coralfundraisernodes_com_nameservers" {
     "${aws_route53_zone.coralfundraisernodes_com.name_servers.2}",
     "${aws_route53_zone.coralfundraisernodes_com.name_servers.3}",
   ]
-
+}
 
 resource "aws_route53_record" "coralfundraisernodes_com_soa" {
   allow_overwrite = true

@@ -1,37 +1,36 @@
-#resource "aws_route53_zone" "openzeppelin_org" {
-#  name = "openzeppelin.org"
-#}
+resource "aws_route53_zone" "openzeppelin_org" {
+  name = "openzeppelin.org"
+}
 
-#resource "aws_route53_record" "openzeppelin_org_nameservers" {
-#  allow_overwrite = true
-#  name            = "openzeppelin.org"
-#  ttl             = 30
-#  type            = "NS"
-#  zone_id         = "${aws_route53_zone.openzeppelin_org.zone_id}"
-#
-#  records = [
-#    "${aws_route53_zone.openzeppelin_org.name_servers.0}",
-#    "${aws_route53_zone.openzeppelin_org.name_servers.1}",
-#    "${aws_route53_zone.openzeppelin_org.name_servers.2}",
-#    "${aws_route53_zone.openzeppelin_org.name_servers.3}",
-#  ]
-#}
+resource "aws_route53_record" "openzeppelin_org_nameservers" {
+  allow_overwrite = true
+  name            = "openzeppelin.org"
+  ttl             = 60
+  type            = "NS"
+  zone_id         = "${aws_route53_zone.openzeppelin_org.zone_id}"
 
-#resource "aws_route53_record" "openzeppelin_org_soa" {
-#  allow_overwrite = true
-#  name            = "openzeppelin.org"
-#  ttl             = 900
-#  type            = "SOA"
-#  zone_id         = "${aws_route53_zone.openzeppelin_org.zone_id}"
-#
-#  records = [
-#    "${aws_route53_zone.openzeppelin_org.name_servers.0}. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400"
-#  ]
-#}
+  records = [
+    "${aws_route53_zone.openzeppelin_org.name_servers.0}",
+    "${aws_route53_zone.openzeppelin_org.name_servers.1}",
+    "${aws_route53_zone.openzeppelin_org.name_servers.2}",
+    "${aws_route53_zone.openzeppelin_org.name_servers.3}",
+  ]
+}
+
+resource "aws_route53_record" "openzeppelin_org_soa" {
+  allow_overwrite = true
+  name            = "openzeppelin.org"
+  ttl             = 900
+  type            = "SOA"
+  zone_id         = "${aws_route53_zone.openzeppelin_org.zone_id}"
+
+  records = [
+    "${aws_route53_zone.openzeppelin_org.name_servers.0}. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400"
+  ]
+}
 
 resource "aws_route53_record" "openzeppelin_org_website" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "openzeppelin.org"
   ttl     = "300"
   type    = "A"
@@ -39,8 +38,7 @@ resource "aws_route53_record" "openzeppelin_org_website" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_aws_certificate_validation" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "_df0a7bc1a38ac3b6105129ad125344ab.openzeppelin.org"
   ttl     = "300"
   type    = "CNAME"
@@ -48,8 +46,7 @@ resource "aws_route53_record" "openzeppelin_org_aws_certificate_validation" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_aws_certificate_validation_www" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "_7c9144567bcc1b51ee510d4338c4ab65.www.openzeppelin.org"
   ttl     = "300"
   type    = "CNAME"
@@ -57,8 +54,7 @@ resource "aws_route53_record" "openzeppelin_org_aws_certificate_validation_www" 
 }
 
 resource "aws_route53_record" "openzeppelin_org_google_mx" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "openzeppelin.org"
   ttl     = "300"
   type    = "MX"
@@ -72,8 +68,7 @@ resource "aws_route53_record" "openzeppelin_org_google_mx" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_txt" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "openzeppelin.org"
   ttl     = "300"
   type    = "TXT"
@@ -84,8 +79,7 @@ resource "aws_route53_record" "openzeppelin_org_txt" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_mailgun_txt_k1" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "k1._domainkey.openzeppelin.org"
   ttl     = "300"
   type    = "TXT"
@@ -95,8 +89,7 @@ resource "aws_route53_record" "openzeppelin_org_mailgun_txt_k1" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_www" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "www.openzeppelin.org"
   ttl     = 300
   type    = "CNAME"
@@ -104,8 +97,7 @@ resource "aws_route53_record" "openzeppelin_org_www" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_docs" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "docs.openzeppelin.org"
   ttl     = 300
   type    = "CNAME"
@@ -113,8 +105,7 @@ resource "aws_route53_record" "openzeppelin_org_docs" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_forum" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "forum.openzeppelin.org"
   ttl     = 300
   type    = "CNAME"
@@ -122,8 +113,7 @@ resource "aws_route53_record" "openzeppelin_org_forum" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_slack_landing_page" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "slack.openzeppelin.org"
   ttl     = 300
   type    = "CNAME"
@@ -131,8 +121,7 @@ resource "aws_route53_record" "openzeppelin_org_slack_landing_page" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_cto" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "cto.openzeppelin.org"
   ttl     = 300
   type    = "CNAME"
@@ -140,8 +129,7 @@ resource "aws_route53_record" "openzeppelin_org_cto" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_gns_rinkeby" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "rinkeby-01.gsn.openzeppelin.org"
   ttl     = 300
   type    = "A"
@@ -149,8 +137,7 @@ resource "aws_route53_record" "openzeppelin_org_gns_rinkeby" {
 }
 
 resource "aws_route53_record" "openzeppelin_org_gns_rinkeby_02" {
-  zone_id = "Z4OXHKVXYGOI"
-#  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "rinkeby-02.gsn.openzeppelin.org"
   ttl     = 300
   type    = "A"

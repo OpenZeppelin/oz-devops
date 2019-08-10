@@ -35,7 +35,7 @@ resource "aws_route53_record" "zpl_in_website" {
   type    = "A"
   alias {
     name                   = "d3vpyoihivlbza.cloudfront.net."
-    zone_id                = " Z2FDTNDATAQYW2"
+    zone_id                = "Z2FDTNDATAQYW2"
     evaluate_target_health = false
   }
 }

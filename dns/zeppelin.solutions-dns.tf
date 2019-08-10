@@ -1,37 +1,36 @@
-#resource "aws_route53_zone" "zeppelin_solutions" {
-#  name = "zeppelin.solutions"
-#}
+resource "aws_route53_zone" "zeppelin_solutions" {
+  name = "zeppelin.solutions"
+}
 
-#resource "aws_route53_record" "zeppelin_solutions_nameservers" {
-#  allow_overwrite = true
-#  name            = "zeppelin.solutions"
-#  ttl             = 30
-#  type            = "NS"
-#  zone_id         = "${aws_route53_zone.zeppelin_solutions.zone_id}"
-#
-#  records = [
-#    "${aws_route53_zone.zeppelin_solutions.name_servers.0}",
-#    "${aws_route53_zone.zeppelin_solutions.name_servers.1}",
-#    "${aws_route53_zone.zeppelin_solutions.name_servers.2}",
-#    "${aws_route53_zone.zeppelin_solutions.name_servers.3}",
-#  ]
-#}
+resource "aws_route53_record" "zeppelin_solutions_nameservers" {
+  allow_overwrite = true
+  name            = "zeppelin.solutions"
+  ttl             = 30
+  type            = "NS"
+  zone_id         = "${aws_route53_zone.zeppelin_solutions.zone_id}"
 
-#resource "aws_route53_record" "zeppelin_solutions_soa" {
-#  allow_overwrite = true
-#  name            = "zeppelin_solutions"
-#  ttl             = 900
-#  type            = "SOA"
-#  zone_id         = "${aws_route53_zone.zeppelin_solutions.zone_id}"
-#
-#  records = [
-#    "${aws_route53_zone.zeppelin_solutions.name_servers.0}. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400"
-#  ]
-#}
+  records = [
+    "${aws_route53_zone.zeppelin_solutions.name_servers.0}",
+    "${aws_route53_zone.zeppelin_solutions.name_servers.1}",
+    "${aws_route53_zone.zeppelin_solutions.name_servers.2}",
+    "${aws_route53_zone.zeppelin_solutions.name_servers.3}",
+  ]
+}
+
+resource "aws_route53_record" "zeppelin_solutions_soa" {
+  allow_overwrite = true
+  name            = "zeppelin_solutions"
+  ttl             = 900
+  type            = "SOA"
+  zone_id         = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+
+  records = [
+    "${aws_route53_zone.zeppelin_solutions.name_servers.0}. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400"
+  ]
+}
 
 resource "aws_route53_record" "zeppelin_solutions_website" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "zeppelin.solutions"
   ttl     = "300"
   type    = "A"
@@ -39,8 +38,7 @@ resource "aws_route53_record" "zeppelin_solutions_website" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_website_www" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "www.zeppelin.solutions"
   ttl     = "300"
   type    = "CNAME"
@@ -50,8 +48,7 @@ resource "aws_route53_record" "zeppelin_solutions_website_www" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_aws_certificate_validation" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "_a2e6bd1a8031b3138db955e90c650b8a.zeppelin.solutions"
   ttl     = "900"
   type    = "CNAME"
@@ -61,8 +58,7 @@ resource "aws_route53_record" "zeppelin_solutions_aws_certificate_validation" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_amazonses_txt" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "_amazonses.zeppelin.solutions"
   ttl     = "300"
   type    = "TXT"
@@ -72,8 +68,7 @@ resource "aws_route53_record" "zeppelin_solutions_amazonses_txt" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_google_mx" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "zeppelin.solutions"
   ttl     = "300"
   type    = "MX"
@@ -87,8 +82,7 @@ resource "aws_route53_record" "zeppelin_solutions_google_mx" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_google_txt" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "zeppelin.solutions"
   ttl     = "900"
   type    = "TXT"
@@ -98,8 +92,7 @@ resource "aws_route53_record" "zeppelin_solutions_google_txt" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_blog_nameservers" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id         = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id         = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name            = "blog.zeppelin.solution"
   ttl             = 30
   type            = "NS"
@@ -112,8 +105,7 @@ resource "aws_route53_record" "zeppelin_solutions_blog_nameservers" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_blog_comodoca_certificate_validation" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "2c0166b576465e4ac79da93b243892c5.blog.zeppelin.solutions"
   ttl     = "900"
   type    = "CNAME"
@@ -123,8 +115,7 @@ resource "aws_route53_record" "zeppelin_solutions_blog_comodoca_certificate_vali
 }
 
 resource "aws_route53_record" "zeppelin_solutions_cloc" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "cloc.zeppelin.solutions"
   ttl     = "300"
   type    = "A"
@@ -132,8 +123,7 @@ resource "aws_route53_record" "zeppelin_solutions_cloc" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_backoffice" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "backoffice.zeppelin.solutions"
   ttl     = "900"
   type    = "A"
@@ -141,8 +131,7 @@ resource "aws_route53_record" "zeppelin_solutions_backoffice" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_basil" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "basil.zeppelin.solutions"
   ttl     = "900"
   type    = "A"
@@ -150,47 +139,42 @@ resource "aws_route53_record" "zeppelin_solutions_basil" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_crafty" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "crafty.zeppelin.solutions"
   type    = "CNAME"
   records = ["zeppelinsolutions-craft.netlify.com"]
 }
 
 resource "aws_route53_record" "zeppelin_solutions_ethernaut" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "ethernaut.zeppelin.solutions"
   ttl     = "900"
   type    = "CNAME"
-  records = ["openzeppelin-ethernaut.netlify.com"]
+  records = ["ethernaut.openzeppelin.com"]
 }
 
 resource "aws_route53_record" "zeppelin_solutions_ethernaut_devcon3" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "ethernaut-devcon3.zeppelin.solutions"
   ttl     = "900"
   type    = "CNAME"
   records = [
-    "openzeppelin-ethernaut.netlify.com"
+    "ethernaut.openzeppelin.com"
   ]
 }
 
 resource "aws_route53_record" "zeppelin_solutions_ethernaut_ethuoft" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "ethernaut-ethuoft.zeppelin.solutions."
   ttl     = "900"
   type    = "CNAME"
   records = [
-    "openzeppelin-ethernaut.netlify.com"
+    "ethernaut.openzeppelin.com"
   ]
 }
 
 resource "aws_route53_record" "zeppelin_solutions_ethhunt" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "ethhunt.zeppelin.solutions"
   ttl     = "300"
   type    = "A"
@@ -198,8 +182,7 @@ resource "aws_route53_record" "zeppelin_solutions_ethhunt" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_forum" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "forum.zeppelin.solutions."
   ttl     = "300"
   type    = "CNAME"
@@ -209,9 +192,8 @@ resource "aws_route53_record" "zeppelin_solutions_forum" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_smackathon_aws_certificate_validation" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
-  name    = " _49e74f9f75ec162bfc241a2c2164e6eb.smackathon.zeppelin.solutions."
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  name    = "_49e74f9f75ec162bfc241a2c2164e6eb.smackathon.zeppelin.solutions."
   ttl     = "900"
   type    = "CNAME"
   records = [
@@ -220,8 +202,7 @@ resource "aws_route53_record" "zeppelin_solutions_smackathon_aws_certificate_val
 }
 
 resource "aws_route53_record" "zeppelin_solutions_solmap" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "solmap.zeppelin.solutions"
   type    = "A"
   alias {
@@ -232,9 +213,8 @@ resource "aws_route53_record" "zeppelin_solutions_solmap" {
 }
 
 resource "aws_route53_record" "zeppelin_solutions_solmap_aws_certificate_validation" {
-  zone_id = "ZB15TMR9MWDH7"
-#  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
-  name    = " _12b9468873f62de880e9bb4cfc82f941.solmap.zeppelin.solutions."
+  zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
+  name    = "_12b9468873f62de880e9bb4cfc82f941.solmap.zeppelin.solutions."
   ttl     = "300"
   type    = "CNAME"
   records = [

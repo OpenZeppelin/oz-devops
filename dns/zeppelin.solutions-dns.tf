@@ -141,6 +141,7 @@ resource "aws_route53_record" "zeppelin_solutions_basil" {
 resource "aws_route53_record" "zeppelin_solutions_crafty" {
   zone_id = "${aws_route53_zone.zeppelin_solutions.zone_id}"
   name    = "crafty.zeppelin.solutions"
+  ttl     = "900"
   type    = "CNAME"
   records = ["zeppelinsolutions-craft.netlify.com"]
 }

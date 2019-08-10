@@ -15,7 +15,7 @@ resource "aws_route53_record" "zpl_in_nameservers" {
     "${aws_route53_zone.zpl_in.name_servers.2}",
     "${aws_route53_zone.zpl_in.name_servers.3}",
   ]
-
+}
 
 resource "aws_route53_record" "zpl_in_soa" {
   allow_overwrite = true

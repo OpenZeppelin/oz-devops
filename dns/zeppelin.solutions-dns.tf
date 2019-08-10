@@ -19,7 +19,7 @@ resource "aws_route53_record" "zeppelin_solutions_nameservers" {
 
 resource "aws_route53_record" "zeppelin_solutions_soa" {
   allow_overwrite = true
-  name            = "zeppelin_solutions"
+  name            = "zeppelin.solutions"
   ttl             = 900
   type            = "SOA"
   zone_id         = "${aws_route53_zone.zeppelin_solutions.zone_id}"

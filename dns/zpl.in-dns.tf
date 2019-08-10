@@ -39,11 +39,3 @@ resource "aws_route53_record" "zpl_in_website" {
     evaluate_target_health = false
   }
 }
-
-resource "aws_route53_record" "zpl_in_ethernaut" {
-  zone_id = "${aws_route53_zone.zpl_in.zone_id}"
-  name    = "zpl.in"
-  ttl     = "300"
-  type    = "A"
-  records = ["54.86.213.93"]
-}

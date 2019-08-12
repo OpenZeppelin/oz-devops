@@ -151,3 +151,11 @@ resource "aws_route53_record" "openzeppelin_org_gns_mainnet_02" {
   type    = "A"
   records = ["34.201.210.154"]
 }
+
+resource "aws_route53_record" "openzeppelin_org_gns_mainnet_03" {
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  name    = "mainnet-03.gsn.openzeppelin.org"
+  ttl     = 300
+  type    = "A"
+  records = ["34.239.146.122"]
+}

@@ -144,10 +144,10 @@ resource "aws_route53_record" "openzeppelin_org_gns_rinkeby_02" {
   records = ["18.214.40.62"]
 }
 
-resource "aws_route53_record" "openzeppelin_org_gns_mainnet_01" {
+resource "aws_route53_record" "openzeppelin_org_gns_mainnet_02" {
   zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
-  name    = "mainnet-01.gsn.openzeppelin.org"
+  name    = "mainnet-02.gsn.openzeppelin.org"
   ttl     = 300
   type    = "A"
-  records = ["54.173.226.37"]
+  records = ["34.201.210.154"]
 }

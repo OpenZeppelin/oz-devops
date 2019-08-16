@@ -93,7 +93,7 @@ resource "aws_route53_record" "zeppelin_solutions_google_txt" {
 
 resource "aws_route53_record" "zeppelin_solutions_blog_nameservers" {
   zone_id         = "${aws_route53_zone.zeppelin_solutions.zone_id}"
-  name            = "blog.zeppelin.solution"
+  name            = "blog.zeppelin.solutions"
   ttl             = 30
   type            = "NS"
 

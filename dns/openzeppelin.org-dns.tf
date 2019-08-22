@@ -159,3 +159,11 @@ resource "aws_route53_record" "openzeppelin_org_gns_mainnet_03" {
   type    = "A"
   records = ["34.239.146.122"]
 }
+
+resource "aws_route53_record" "openzeppelin_org_gns_kovan_01" {
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  name    = "kovan-01.gsn.openzeppelin.org"
+  ttl     = 300
+  type    = "A"
+  records = ["35.153.156.154"]
+}

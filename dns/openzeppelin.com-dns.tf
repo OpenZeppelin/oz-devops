@@ -146,3 +146,10 @@ resource "aws_route53_record" "openzeppelin_com_gsn" {
   records = ["gifted-mayer-c163b8.netlify.com"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_simple-poll" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "simple-poll.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["clever-kowalevski-d01bac.netlify.com"]
+}

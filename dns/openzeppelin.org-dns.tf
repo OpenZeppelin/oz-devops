@@ -183,3 +183,11 @@ resource "aws_route53_record" "openzeppelin_org_gns_xdai_01" {
   type    = "A"
   records = ["54.236.31.162"]
 }
+
+resource "aws_route53_record" "openzeppelin_org_xdai_01" {
+  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
+  name    = "xdai-01.openzeppelin.org"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["xdai-01.gsn.openzeppelin.org"]
+}

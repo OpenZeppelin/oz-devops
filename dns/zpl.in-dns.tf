@@ -36,3 +36,11 @@ resource "aws_route53_record" "zpl_in_website" {
   type    = "A"
   records = [local.netlify_ip]
 }
+
+resource "aws_route53_record" "zpl_in_www" {
+  zone_id = "${aws_route53_zone.zpl_in.zone_id}"
+  name    = "www.zpl.in"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["zpl-in.netlify.com"]
+}

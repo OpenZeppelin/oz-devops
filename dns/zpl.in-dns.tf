@@ -32,10 +32,7 @@ resource "aws_route53_record" "zpl_in_soa" {
 resource "aws_route53_record" "zpl_in_website" {
   zone_id = "${aws_route53_zone.zpl_in.zone_id}"
   name    = "zpl.in"
+  ttl     = "300"
   type    = "A"
-  alias {
-    name                   = "d3vpyoihivlbza.cloudfront.net."
-    zone_id                = "Z2FDTNDATAQYW2"
-    evaluate_target_health = false
-  }
+  records = [local.netlify_ip]
 }

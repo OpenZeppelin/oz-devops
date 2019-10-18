@@ -153,3 +153,12 @@ resource "aws_route53_record" "openzeppelin_com_simple-poll" {
   type    = "CNAME"
   records = ["clever-kowalevski-d01bac.netlify.com"]
 }
+
+resource "aws_route53_record" "openzeppelin_com_erc20-verifier" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "erc20-verifier.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["erc20-verifier.netlify.com"]
+}
+

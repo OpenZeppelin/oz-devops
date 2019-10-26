@@ -162,3 +162,11 @@ resource "aws_route53_record" "openzeppelin_com_erc20-verifier" {
   records = ["erc20-verifier.netlify.com"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_identity-recovery-demo" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "identity-recovery-demo.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["identity-recovery-demo.netlify.com"]
+}
+

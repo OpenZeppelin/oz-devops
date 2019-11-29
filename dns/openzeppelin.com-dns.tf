@@ -178,3 +178,11 @@ resource "aws_route53_record" "openzeppelin_com_identity-recovery-demo" {
   records = ["identity-recovery-demo.netlify.com"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_proxy-explorer" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "proxy-explorer.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["openzeppelin-proxy-explorer.netlify.com"]
+}
+

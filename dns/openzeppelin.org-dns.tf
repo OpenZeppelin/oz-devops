@@ -120,14 +120,6 @@ resource "aws_route53_record" "openzeppelin_org_slack_landing_page" {
   records = ["openzeppelin-slack.netlify.com"]
 }
 
-resource "aws_route53_record" "openzeppelin_org_cto" {
-  zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
-  name    = "cto.openzeppelin.org"
-  ttl     = 300
-  type    = "CNAME"
-  records = ["openzeppelin-cto.netlify.com"]
-}
-
 resource "aws_route53_record" "openzeppelin_org_gns_rinkeby" {
   zone_id = "${aws_route53_zone.openzeppelin_org.zone_id}"
   name    = "rinkeby-01.gsn.openzeppelin.org"
@@ -165,7 +157,7 @@ resource "aws_route53_record" "openzeppelin_org_gns_kovan_01" {
   name    = "kovan-01.gsn.openzeppelin.org"
   ttl     = 300
   type    = "A"
-  records = ["35.153.156.154"]
+  records = ["3.210.203.12"]
 }
 
 resource "aws_route53_record" "openzeppelin_org_gns_ropsten_01" {

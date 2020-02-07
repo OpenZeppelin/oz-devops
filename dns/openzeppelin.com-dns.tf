@@ -186,3 +186,10 @@ resource "aws_route53_record" "openzeppelin_com_proxy-explorer" {
   records = ["openzeppelin-proxy-explorer.netlify.com"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_starter-kit-demo" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "starter-kit-demo.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["openzeppelin-starter-kit-demo.netlify.com"]
+}

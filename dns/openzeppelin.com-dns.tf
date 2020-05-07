@@ -66,7 +66,11 @@ resource "aws_route53_record" "openzeppelin_com_txt" {
   type    = "TXT"
   records = [
     "v=spf1 include:_spf.google.com ~all",
-    "google-site-verification=30do8MGZ29CQX6R0H5hs3Y09SUYuLIt1fbrHWBeJg98"
+    "v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@openzeppelin.com",
+    "google-site-verification=30do8MGZ29CQX6R0H5hs3Y09SUYuLIt1fbrHWBeJg98",
+    "ethbuenosaires.com._report._dmarc.openzeppelin.com",
+    "openzeppelin.org._report._dmarc.openzeppelin.com",
+    "zeppelin.solutions.com._report._dmarc.openzeppelin.com"
   ]
 }
 

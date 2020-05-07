@@ -87,7 +87,9 @@ resource "aws_route53_record" "zeppelin_solutions_google_txt" {
   ttl     = "900"
   type    = "TXT"
   records = [
-    "google-site-verification=2Yn5UhqxucWrImbhsLsnr6NqgsTH6MlfMQ7mqa2KAPE"
+    "google-site-verification=2Yn5UhqxucWrImbhsLsnr6NqgsTH6MlfMQ7mqa2KAPE",
+    "v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@openzeppelin.com",
+    "v=spf1 include:_spf.google.com ~all"
   ]
 }
 

@@ -74,6 +74,7 @@ resource "aws_route53_record" "openzeppelin_org_txt" {
   type    = "TXT"
   records = [
     "v=spf1 include:mailgun.org include:_spf.google.com ~all",
+    "v=DMARC1; p=quarantine; rua=mailto:ignacio@openzeppelin.com",
     "google-site-verification=77Dy8GeDTYpHhvkmjpkIzCTAmlMwQxbas17B20kQNaI"
   ]
 }

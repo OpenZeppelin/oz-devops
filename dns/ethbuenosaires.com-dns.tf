@@ -80,7 +80,8 @@ resource "aws_route53_record" "ethbuenosaires_com_google_txt" {
   ttl     = "900"
   type    = "TXT"
   records = [
-    "v=spf1 include:_spf.google.com ~all"
+    "v=spf1 include:_spf.google.com ~all",
+    "v=DMARC1; p=quarantine; rua=mailto:ignacio@openzeppelin.com"
   ]
 }
 

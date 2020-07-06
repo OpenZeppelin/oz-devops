@@ -197,3 +197,11 @@ resource "aws_route53_record" "openzeppelin_com_starter-kit-demo" {
   type    = "CNAME"
   records = ["openzeppelin-starter-kit-demo.netlify.com"]
 }
+
+resource "aws_route53_record" "openzeppelin_com_defender_aws_certificate_validation" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "_172f7f32804e73c58f0527b62ce55afa.defender.openzeppelin.com."
+  ttl     = 300
+  type    = "CNAME"
+  records = ["_aadf41056f9db0b343ea50a6cb224267.tfmgdnztqk.acm-validations.aws."]
+}

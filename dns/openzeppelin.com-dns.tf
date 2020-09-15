@@ -205,3 +205,80 @@ resource "aws_route53_record" "openzeppelin_com_defender_aws_certificate_validat
   type    = "CNAME"
   records = ["_aadf41056f9db0b343ea50a6cb224267.tfmgdnztqk.acm-validations.aws."]
 }
+
+resource "aws_route53_record" "openzeppelin_com_defender" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "defender.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["d2sypkyx96x9wx.cloudfront.net"]
+}
+
+resource "aws_route53_record" "openzeppelin_com_defender_api_aws_certificate_validation" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "_9c0b7c10ff44e16b6d9aa3e0aa275ce6.api.defender.openzeppelin.com."
+  ttl     = 300
+  type    = "CNAME"
+  records = ["_7d4365eeb5abef937ba18cf4ccfd4d43.jfrzftwwjs.acm-validations.aws."]
+}
+
+resource "aws_route53_record" "openzeppelin_com_defender_api" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "api.defender.openzeppelin.com."
+  ttl     = 300
+  type    = "CNAME"
+  records = ["jdspau484f.execute-api.us-west-2.amazonaws.com"]
+}
+
+resource "aws_route53_record" "openzeppelin_com_defender_auth_aws_certificate_validation" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "_f38d05f6f76ea5ea2e9c804d2ff151bc.auth.defender.openzeppelin.com."
+  ttl     = 300
+  type    = "CNAME"
+  records = ["_64f254505c372845c1683143b357b44d.jfrzftwwjs.acm-validations.aws."]
+}
+
+resource "aws_route53_record" "openzeppelin_com_defender_auth_alias" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "auth.defender.openzeppelin.com."
+  type    = "A"
+  alias {
+    name    = "d16jsayjjd7bde.cloudfront.net"
+    zone_id = "Z2FDTNDATAQYW2"
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "openzeppelin_com_defender_amazonses_txt" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "_amazonses.defender.openzeppelin.com"
+  ttl     = "300"
+  type    = "TXT"
+  records = [
+    "mMy9BrFfWdNy21G3lz4ZuzxJdOqsALfQWfXu/vD6n2Y=",
+  ]
+}
+
+resource "aws_route53_record" "openzeppelin_com_defender_dkim_1" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "csrh5mvpf5fhgrk4sj2gts46n7s2fkoc._domainkey.defender.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["csrh5mvpf5fhgrk4sj2gts46n7s2fkoc.dkim.amazonses.com"]
+}
+
+resource "aws_route53_record" "openzeppelin_com_defender_dkim_2" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "xwqiui3vs7n756wc24ey4kramuzfoqay._domainkey.defender.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["xwqiui3vs7n756wc24ey4kramuzfoqay.dkim.amazonses.com"]
+}
+
+resource "aws_route53_record" "openzeppelin_com_defender_dkim_3" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "46yu4ocw773gn7g36dpltes5ifezgmgi._domainkey.defender.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["46yu4ocw773gn7g36dpltes5ifezgmgi.dkim.amazonses.com"]
+}

@@ -291,3 +291,19 @@ resource "aws_route53_record" "openzeppelin_com_defender_cloudflare-verify-cname
   records = ["461621821-307126714"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_docs_defender_certificate_validation" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "_2e0748d2059751592c5781c871a4b1ef.docs.defender.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["_6e54810a0a7aadd9a7b07ef24af40af6.bsgbmzkfwj.acm-validations.aws."]
+}
+
+resource "aws_route53_record" "openzeppelin_com_docs_defender" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "docs.defender.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["d1n5mjdp3omvd9.cloudfront.net"]
+}
+

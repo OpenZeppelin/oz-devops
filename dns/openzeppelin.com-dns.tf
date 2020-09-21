@@ -282,3 +282,12 @@ resource "aws_route53_record" "openzeppelin_com_defender_dkim_3" {
   type    = "CNAME"
   records = ["46yu4ocw773gn7g36dpltes5ifezgmgi.dkim.amazonses.com"]
 }
+
+resource "aws_route53_record" "openzeppelin_com_defender_cloudflare-verify-cname" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "cloudflare-verify.openzeppelin.com"
+  ttl     = 300
+  type    = "TXT"
+  records = ["461621821-307126714"]
+}
+

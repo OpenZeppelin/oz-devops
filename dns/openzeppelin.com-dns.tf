@@ -282,3 +282,20 @@ resource "aws_route53_record" "openzeppelin_com_defender_dkim_3" {
   type    = "CNAME"
   records = ["46yu4ocw773gn7g36dpltes5ifezgmgi.dkim.amazonses.com"]
 }
+
+resource "aws_route53_record" "openzeppelin_com_cloudflare_verify_txt" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "cloudflare-verify.openzeppelin.com"
+  ttl     = "300"
+  type    = "TXT"
+  records = ["461621821-307126714"]
+}
+
+#TODO: remove this once we enable cloudflare for the actual domain
+resource "aws_route53_record" "openzeppelin_com_slanders_cloudflare_cname" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "slanders.openzeppelin.com"
+  ttl     = "300"
+  type    = "CNAME"
+  records = [ "slanders.openzeppelin.com.cdn.cloudflare.net" ]
+}

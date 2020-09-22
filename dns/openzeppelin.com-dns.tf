@@ -227,7 +227,7 @@ resource "aws_route53_record" "openzeppelin_com_defender_api" {
   name    = "api.defender.openzeppelin.com."
   ttl     = 300
   type    = "CNAME"
-  records = ["jdspau484f.execute-api.us-west-2.amazonaws.com"]
+  records = ["api.defender.openzeppelin.com.cdn.cloudflare.net"]
 }
 
 resource "aws_route53_record" "openzeppelin_com_defender_auth_aws_certificate_validation" {

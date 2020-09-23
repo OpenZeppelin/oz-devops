@@ -304,6 +304,6 @@ resource "aws_route53_record" "openzeppelin_com_docs_defender" {
   name    = "docs.defender.openzeppelin.com"
   ttl     = 300
   type    = "CNAME"
-  records = ["d1n5mjdp3omvd9.cloudfront.net"]
+  records = ["openzeppelin-redirections.netlify.app"]
 }
 

@@ -314,3 +314,11 @@ resource "aws_route53_record" "openzeppelin_com_slanders_cloudflare_cname" {
   type    = "CNAME"
   records = [ "slanders.openzeppelin.com.cdn.cloudflare.net" ]
 }
+
+resource "aws_route53_record" "openzeppelin_com_cloudflare_cert_verification_cname_api_defender" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "_ca3-04595aa055d2474a870f03d8c6a2fb42.api.defender.openzeppelin.com"
+  ttl     = "300"
+  type    = "CNAME"
+  records = [ "dcv.digicert.com" ]
+}

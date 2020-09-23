@@ -307,3 +307,10 @@ resource "aws_route53_record" "openzeppelin_com_docs_defender" {
   records = ["openzeppelin-redirections.netlify.app"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_slanders_cloudflare_cname" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "slanders.openzeppelin.com"
+  ttl     = "300"
+  type    = "CNAME"
+  records = [ "slanders.openzeppelin.com.cdn.cloudflare.net" ]
+}

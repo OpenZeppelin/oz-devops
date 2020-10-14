@@ -256,6 +256,7 @@ resource "aws_route53_record" "openzeppelin_com_defender_amazonses_txt" {
   type    = "TXT"
   records = [
     "mMy9BrFfWdNy21G3lz4ZuzxJdOqsALfQWfXu/vD6n2Y=",
+    "DQyoXb6rE3OCJnU1pL6xxlCYDK78TA0fvhf3b7YSIPU="
   ]
 }
 
@@ -321,4 +322,14 @@ resource "aws_route53_record" "openzeppelin_com_cloudflare_cert_verification_cna
   ttl     = "300"
   type    = "CNAME"
   records = [ "dcv.digicert.com" ]
+}
+
+resource "aws_route53_record" "openzeppelin_com_defender_ses_mx" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "defender.openzeppelin.com"
+  ttl     = "300"
+  type    = "MX"
+  records = [
+    "10 inbound-smtp.us-east-1.amazonaws.com."
+  ]
 }

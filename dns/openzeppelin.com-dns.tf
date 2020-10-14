@@ -209,9 +209,12 @@ resource "aws_route53_record" "openzeppelin_com_defender_aws_certificate_validat
 resource "aws_route53_record" "openzeppelin_com_defender" {
   zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
   name    = "defender.openzeppelin.com"
-  ttl     = 300
-  type    = "CNAME"
-  records = ["d2sypkyx96x9wx.cloudfront.net"]
+  type    = "A"
+  alias {
+    name  = "d2sypkyx96x9wx.cloudfront.net"
+    zone_id = "Z2FDTNDATAQYW2"
+    evaluate_target_health = false
+  }
 }
 
 resource "aws_route53_record" "openzeppelin_com_defender_api_aws_certificate_validation" {

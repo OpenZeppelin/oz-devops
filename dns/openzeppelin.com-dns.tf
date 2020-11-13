@@ -134,6 +134,14 @@ resource "aws_route53_record" "openzeppelin_com_ethernaut" {
   records = ["openzeppelin-ethernaut.netlify.com"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_ethernaut_solidity-05" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "solidity-05.ethernaut.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["solidity-05--openzeppelin-ethernaut.netlify.com"]
+}
+
 resource "aws_route53_record" "openzeppelin_com_ethernaut_ropsten" {
   zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
   name    = "ropsten.ethernaut.openzeppelin.com"

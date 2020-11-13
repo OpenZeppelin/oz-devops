@@ -134,12 +134,12 @@ resource "aws_route53_record" "openzeppelin_com_ethernaut" {
   records = ["openzeppelin-ethernaut.netlify.com"]
 }
 
-resource "aws_route53_record" "openzeppelin_com_ethernaut_solidity-05" {
+resource "aws_route53_record" "openzeppelin_com_ethernaut_ropsten" {
   zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
-  name    = "solidity-05.ethernaut.openzeppelin.com"
+  name    = "ropsten.ethernaut.openzeppelin.com"
   ttl     = 300
   type    = "CNAME"
-  records = ["solidity-05--openzeppelin-ethernaut.netlify.com"]
+  records = ["ropsten--openzeppelin-ethernaut.netlify.com"]
 }
 
 resource "aws_route53_record" "openzeppelin_com_gsn-chat-app" {

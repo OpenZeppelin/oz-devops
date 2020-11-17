@@ -311,6 +311,22 @@ resource "aws_route53_record" "openzeppelin_com_docs_defender" {
   records = ["openzeppelin-redirections.netlify.app"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_hubspot_1" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "hs1-7795250._domainkey.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["openzeppelin-com.hs08a.dkim.hubspotemail.net."]
+}
+
+resource "aws_route53_record" "openzeppelin_com_hubspot_2" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "hs2-7795250._domainkey.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["openzeppelin-com.hs08b.dkim.hubspotemail.net."]
+}
+
 resource "aws_route53_record" "openzeppelin_com_slanders_cloudflare_cname" {
   zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
   name    = "slanders.openzeppelin.com"

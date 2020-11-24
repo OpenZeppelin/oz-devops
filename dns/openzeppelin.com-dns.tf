@@ -352,3 +352,31 @@ resource "aws_route53_record" "openzeppelin_com_defender_ses_mx" {
     "10 inbound-smtp.us-east-1.amazonaws.com."
   ]
 }
+
+resource "aws_route53_record" "openzeppelin_com_greenhouse_mx" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "gh-mail.openzeppelin.com"
+  ttl     = "300"
+  type    = "MX"
+  records = [
+    "10 mxa.mailgun.org.",
+    "10 mxb.mailgun.org."
+  ]
+}
+
+resource "aws_route53_record" "openzeppelin_com_greenhouse_spf" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "gh-mail.openzeppelin.com"
+  ttl     = "300"
+  type    = "TXT"
+  records = ["v=spf1 include:mg-spf.greenhouse.io ~all"]
+}
+
+resource "aws_route53_record" "openzeppelin_com_greenhouse_mail" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "email.gh-mail.openzeppelin.com"
+  ttl     = "300"
+  type    = "CNAME"
+  records = ["mailgun.org"]
+}
+

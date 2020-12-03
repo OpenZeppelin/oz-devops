@@ -380,3 +380,10 @@ resource "aws_route53_record" "openzeppelin_com_greenhouse_mail" {
   records = ["mailgun.org"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_greenhouse_dkim" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "krs._domainkey.gh-mail.openzeppelin.com"
+  ttl     = 300
+  type    = "TXT"
+  records = ["k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCSCmSbatJdMxONwtl2aeeNuLgK0ZjQKpXl5yus2LO1hImYRtb0MaQR4kUAXyHK9vwaxxAs3hcvN0WnCNMkQOsSAt8ZHwnVE1HvJOAvMJ1EFXk7yPP31dvFBhGRF8hUsx3ecw9li6LdOqu15uvm9yIVFDfAzWJnC5LYPGmIAd4vqQIDAQAB"]
+}

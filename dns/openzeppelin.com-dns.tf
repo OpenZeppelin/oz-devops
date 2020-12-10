@@ -131,7 +131,7 @@ resource "aws_route53_record" "openzeppelin_com_ethernaut" {
   name    = "ethernaut.openzeppelin.com"
   ttl     = 300
   type    = "CNAME"
-  records = ["openzeppelin-ethernaut.netlify.com"]
+  records = ["openzeppelin-ethernaut.netlify.app"]
 }
 
 resource "aws_route53_record" "openzeppelin_com_ethernaut_ropsten" {
@@ -139,7 +139,7 @@ resource "aws_route53_record" "openzeppelin_com_ethernaut_ropsten" {
   name    = "ropsten.ethernaut.openzeppelin.com"
   ttl     = 300
   type    = "CNAME"
-  records = ["ropsten--openzeppelin-ethernaut.netlify.com"]
+  records = ["ropsten--openzeppelin-ethernaut.netlify.app"]
 }
 
 resource "aws_route53_record" "openzeppelin_com_gsn-chat-app" {

@@ -225,6 +225,14 @@ resource "aws_route53_record" "openzeppelin_com_defender_api_aws_certificate_val
   records = ["_7d4365eeb5abef937ba18cf4ccfd4d43.jfrzftwwjs.acm-validations.aws."]
 }
 
+resource "aws_route53_record" "openzeppelin_com_defender_external_api_aws_certificate_validation" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "_ad5453a8dcf1f4828fde745e6d17d23e.defender-api.openzeppelin.com."
+  ttl     = 300
+  type    = "CNAME"
+  records = ["_c1ebea7d8803a837da1ca55108f6a975.vtqfhvjlcp.acm-validations.aws."]
+}
+
 resource "aws_route53_record" "openzeppelin_com_defender_api" {
   zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
   name    = "api.defender.openzeppelin.com."

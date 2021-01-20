@@ -241,6 +241,14 @@ resource "aws_route53_record" "openzeppelin_com_defender_api" {
   records = ["api.defender.openzeppelin.com.cdn.cloudflare.net"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_defender_external_api" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "defender-api.openzeppelin.com."
+  ttl     = 300
+  type    = "CNAME"
+  records = ["defender-api.openzeppelin.com.cdn.cloudflare.net"]
+}
+
 resource "aws_route53_record" "openzeppelin_com_defender_auth_aws_certificate_validation" {
   zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
   name    = "_f38d05f6f76ea5ea2e9c804d2ff151bc.auth.defender.openzeppelin.com."

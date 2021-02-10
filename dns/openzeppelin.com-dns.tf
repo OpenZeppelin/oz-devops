@@ -403,3 +403,11 @@ resource "aws_route53_record" "openzeppelin_com_greenhouse_dkim" {
   type    = "TXT"
   records = ["k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCSCmSbatJdMxONwtl2aeeNuLgK0ZjQKpXl5yus2LO1hImYRtb0MaQR4kUAXyHK9vwaxxAs3hcvN0WnCNMkQOsSAt8ZHwnVE1HvJOAvMJ1EFXk7yPP31dvFBhGRF8hUsx3ecw9li6LdOqu15uvm9yIVFDfAzWJnC5LYPGmIAd4vqQIDAQAB"]
 }
+
+resource "aws_route53_record" "openzeppelin_com_defender-metatx-workshop-demo" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "defender-metatx-workshop-demo.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["defender-metatx-workshop-demo.netlify.com"]
+}

@@ -34,7 +34,7 @@ resource "aws_route53_record" "openzeppelin_com_website" {
   name    = "openzeppelin.com"
   ttl     = "300"
   type    = "A"
-  records = [local.netlify_ip]
+  records = [local.netlify_tld_alternate_lb]
 }
 
 resource "aws_route53_record" "openzeppelin_com_www" {
@@ -410,4 +410,12 @@ resource "aws_route53_record" "openzeppelin_com_defender-metatx-workshop-demo" {
   ttl     = 300
   type    = "CNAME"
   records = ["defender-metatx-workshop-demo.netlify.com"]
+}
+
+resource "aws_route53_record" "openzeppelin_com_learn" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "learn.openzeppelin.com."
+  ttl     = 300
+  type    = "CNAME"
+  records = ["7795250.group0.sites.hubspot.net"]
 }

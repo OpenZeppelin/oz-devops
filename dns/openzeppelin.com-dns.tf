@@ -100,6 +100,14 @@ resource "aws_route53_record" "openzeppelin_com_lottery" {
   records = ["openzeppelin-lottery.netlify.com"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_wizard" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "wizard.openzeppelin.com"
+  ttl     = 300
+  type    = "CNAME"
+  records = ["openzeppelin-contracts-wizard.netlify.com"]
+}
+
 resource "aws_route53_record" "openzeppelin_com_blog_nameservers" {
   name            = "blog.openzeppelin.com"
   ttl             = 30

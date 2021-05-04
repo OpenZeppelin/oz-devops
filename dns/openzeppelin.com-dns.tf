@@ -66,27 +66,12 @@ resource "aws_route53_record" "openzeppelin_com_txt" {
   type    = "TXT"
   records = [
     "v=spf1 include:_spf.google.com ~all",
+    "v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@openzeppelin.com",
     "google-site-verification=30do8MGZ29CQX6R0H5hs3Y09SUYuLIt1fbrHWBeJg98",
+    "ethbuenosaires.com._report._dmarc.openzeppelin.com",
+    "openzeppelin.org._report._dmarc.openzeppelin.com",
+    "zeppelin.solutions.com._report._dmarc.openzeppelin.com"
   ]
-}
-
-resource "aws_route53_record" "openzeppelin_com_dmarc_txt" {
-  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
-  name    = "_dmarc.openzeppelin.com"
-  ttl     = "300"
-  type    = "TXT"
-  records = [
-    "v=DMARC1; p=reject; rua=mailto:dmarc-reports@openzeppelin.com"
-  ]
-}
-
-resource "aws_route53_record" "openzeppelin_com_dmarc_reports" {
-  for_each = toset(["ethbuenosaires.com", "openzeppelin.org", "zeppelin.solutions.com"])
-  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
-  name    = "${each.key}._report._dmarc.openzeppelin.com"
-  ttl     = "300"
-  type    = "TXT"
-  records = ["v=DMARC1;"]
 }
 
 resource "aws_route53_record" "openzeppelin_com_docs" {

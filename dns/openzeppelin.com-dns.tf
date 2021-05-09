@@ -64,7 +64,7 @@ resource "aws_route53_record" "openzeppelin_com_google_dkim" {
   name    = "google._domainkey"
   ttl     = 300
   type    = "TXT"
-  records = ["v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlDi7s4y5/hy/7/bIZPImiOSEXFrd0Qh+cPM2mRF4XFmbMCzSxIrNaCN9OOw/1+JGohEU9tZzvXqP6nnEb5hOmnQHAWrtv/nbg91LOtYK+/qpgIgsiTzESzXQM+KUhkonzfZ5TqWJew4R5EdUfw/GXy/pDsqj+N15VIguznBe5jz0xIi2PDO6nPFLr3YSrtpnog5AGOg1wXf3ZzxwrKKX+tapM77o9FeCHwzgSeHiHDQTrWJ8ot9x9/Svl+gKcwD0aED9HOZUApMuogDwlfKCv/AYJRb8aK4x6S1TNUjjQ/hLJNlhFratdWMRIvzb7aAbFOUXrhiZr85xAF+Qr+Ig4wIDAQAB"]
+  records = ["v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlDi7s4y5/hy/7/bIZPImiOSEXFrd0Qh+cPM2mRF4XFmbMCzSxIrNaCN9OOw/1+JGohEU9tZzvXqP6nnEb5hOmnQHAWrtv/nbg91LOtYK+/qpgIgsiTzESzXQM+KUhkonzfZ5TqWJew4R5EdUfw/GXy/pDsqj+N15VIguznBe5jz0xIi2PDO6nPFLr\"\"3YSrtpnog5AGOg1wXf3ZzxwrKKX+tapM77o9FeCHwzgSeHiHDQTrWJ8ot9x9/Svl+gKcwD0aED9HOZUApMuogDwlfKCv/AYJRb8aK4x6S1TNUjjQ/hLJNlhFratdWMRIvzb7aAbFOUXrhiZr85xAF+Qr+Ig4wIDAQAB"]
 }
 
 resource "aws_route53_record" "openzeppelin_com_txt" {

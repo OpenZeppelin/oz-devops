@@ -67,6 +67,14 @@ resource "aws_route53_record" "openzeppelin_com_google_dkim" {
   records = ["v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlDi7s4y5/hy/7/bIZPImiOSEXFrd0Qh+cPM2mRF4XFmbMCzSxIrNaCN9OOw/1+JGohEU9tZzvXqP6nnEb5hOmnQHAWrtv/nbg91LOtYK+/qpgIgsiTzESzXQM+KUhkonzfZ5TqWJe\"\"w4R5EdUfw/GXy/pDsqj+N15VIguznBe5jz0xIi2PDO6nPFLr3YSrtpnog5AGOg1wXf3ZzxwrKKX+tapM77o9FeCHwzgSeHiHDQTrWJ8ot9x9/Svl+gKcwD0aED9HOZUApMuogDwlfKCv/AYJRb8aK4x6S1TNUjjQ/hLJNlhFratdWMRIvzb7aAbFOUXrhiZr85xAF+Qr+Ig4wIDAQAB"]
 }
 
+resource "aws_route53_record" "openzeppelin_com_dmarc" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "_dmarc.openzeppelin.com"
+  ttl     = 300
+  type    = "TXT"
+  records = ["v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@openzeppelin.com"]
+}
+
 resource "aws_route53_record" "openzeppelin_com_txt" {
   zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
   name    = "openzeppelin.com"
@@ -74,7 +82,6 @@ resource "aws_route53_record" "openzeppelin_com_txt" {
   type    = "TXT"
   records = [
     "v=spf1 include:_spf.google.com ~all",
-    "v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@openzeppelin.com",
     "google-site-verification=30do8MGZ29CQX6R0H5hs3Y09SUYuLIt1fbrHWBeJg98",
     "ethbuenosaires.com._report._dmarc.openzeppelin.com",
     "openzeppelin.org._report._dmarc.openzeppelin.com",

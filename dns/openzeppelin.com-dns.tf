@@ -72,7 +72,7 @@ resource "aws_route53_record" "openzeppelin_com_dmarc" {
   name    = "_dmarc.openzeppelin.com"
   ttl     = 300
   type    = "TXT"
-  records = ["v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@openzeppelin.com"]
+  records = ["v=DMARC1; p=none; rua=mailto:dmarc-reports@openzeppelin.com"]
 }
 
 resource "aws_route53_record" "openzeppelin_com_txt" {

@@ -248,6 +248,16 @@ resource "aws_route53_record" "openzeppelin_com_defender" {
   }
 }
 
+resource "aws_route53_record" "openzeppelin_com_defender_txt" {
+  zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
+  name    = "defender.openzeppelin.com"
+  ttl     = "300"
+  type    = "TXT"
+  records = [
+    "v=spf1 include:amazonses.com ~all"
+  ]
+}
+
 resource "aws_route53_record" "openzeppelin_com_defender_api_aws_certificate_validation" {
   zone_id = "${aws_route53_zone.openzeppelin_com.zone_id}"
   name    = "_9c0b7c10ff44e16b6d9aa3e0aa275ce6.api.defender.openzeppelin.com."
